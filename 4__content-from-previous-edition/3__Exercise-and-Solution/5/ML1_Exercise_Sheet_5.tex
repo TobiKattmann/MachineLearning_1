@@ -1,0 +1,59 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\DeclareMathOperator\erf{erf}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 5}
+\date{\today\\Deadline: 02.06.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ In this exercise we will try to understand gradient descent, its initialization value, and its learning rate schedule. Consider only functions \[f:\R \to \R.\]
+\begin{enumerate}
+\item Find a constant learning rate schedule ($\lambda_i=c$), a convex function $f$ (with a global minimum), and an initialization value $x_0$ such that the global minimum is never reached if you apply gradient descent with $\lambda_i$ on $f$ starting at $x_0$. Prove that the function is convex. Prove that the global minimum is never reached.
+\item For your choice of convex function and initialization value, is it possible to choose a learning rate schedule (constant or otherwise) such that the global minimum is reached? Prove your claim.
+\item Give an example of an unbounded function ($f(\R)=\R$), a learning rate schedule, and an initialization value for which gradient descent converges to a plateau (a critical point that is neither a minimum nor a maximum). The initialization value can not be chosen as this plateau.
+\item Consider $f(x)=x^3$, is it possible to find a learning rate schedule which converges to the plateau at $x=0$ for any initialization value? Prove your claim.
+\end{enumerate}
+
+\item Let $k\left(\cdot,\cdot\right)$ be a kernel on $\R^d$. Let $\phi(\cdot)$ be the kernel mapping, i.e. $\left<\phi(x), \phi(y)\right> = k(x,y).$ Let $x_1,\ldots, x_n \in \R^d$, $a = \left[a_1,\ldots,a_n\right]^T \R^n$ and $b=  \left[b_1,\ldots,b_n\right]^T \R^n$. Let $K \in \R^{n\times n} = \left[k(x_i,x_j \right]_{i,j}$ be the kernel matrix.
+
+	Prove that 
+	\begin{eqnarray*}
+		\left<\sum_{i= 1}^n a_i \phi(x_i),\sum_{j= 1}^n b_j \phi(x_j)  \right> = a^T K b
+	\end{eqnarray*}
+
+\item For a matrix $X \in \R^{m\times n}$ let $X_{i,:} = \left[X_{i,1},\ldots,X_{i,n}  \right]$ be the $i$-th row vector and $X_{:,i} =  \left[X_{1,i}, \ldots , X_{m,i} \right]^T$ be the $i$-th column vector. For $X \in \R^{m\times n}$ and $Y\in \R^{n\times q}$ show that
+	\begin{eqnarray*}
+		XY = \left[X_{i,:} Y_{:,j} \right]_{i,j}
+	\end{eqnarray*}
+	and
+	\begin{eqnarray*}
+		XY = \sum_{i=1}^n X_{:,i} Y_{i,:}.
+	\end{eqnarray*}
+	Be sure to note the orientations of the vectors, some of these are row vectors and others are column vectors.
+
+\item Solve programming task 5.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 2}
+\date{\today\\Deadline: 12.05.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\
+	In this exercise we will consider the soft-margin SVM
+	\begin{alignat}{2}
+   \min~&  \frac{1}{2}\left\lVert\bw\right\rVert^2+C\sum_{i=1}^n \xi_i\nonumber \\
+   \text{s.t.}~  & 1-\xi_i-y_i(\bw^T\bx_i+b) \leq 0,~-\xi_i\leq 0,~\forall i\in\{1,\dots,n\}\nonumber
+\end{alignat}
+Let $a\in(2,-1)$, consider the one-dimensional datapoints $(2,1), (a,1), (-2,-1)$. For each datapoint the second value is the label. This is a binary classification dataset. We will investigate the behavior of $C$.
+\begin{enumerate}
+\item Determine for $(1)~w=\frac{1}{2}, b=0$ and $(2)~w=\frac{2}{a+2}, b=\frac{2-a}{a+2}$ the objective function depending on $a$ and $C$.
+\item For which value of $C$ is $(1)$ uniformly better than $(2)$, i.e. $\forall a\in (2,-1)$. For which value of $C$ is $(2)$ uniformly better than $(1)$?
+\textbf{Hint:} Explicitly evaluating the intersections of functions is quite involved in this case. Consider using a plotting tool to compare the functions. Prove or argue whatever you find post hoc.
+\item Conclude how $C$ influences the optimization problem. Justify your conclusion using at most 5 sentences.
+\end{enumerate}
+
+\item Let $f(a_1,a_2, \cdots, a_n) = \ln{( e^{a_1}+ e^{a_2}+\cdots+ e^{a_n})}$. Show that $f$ is convex.
+
+\item Using any techniques you have learned from class, determine the domain on which the function $f(x,y) = xy^3$ is convex, i.e. for which combination of $x$ and $y$ is $f(x,y)$ convex?
+
+\item Solve programming task 2.
+\end{enumerate}
+\end{document}

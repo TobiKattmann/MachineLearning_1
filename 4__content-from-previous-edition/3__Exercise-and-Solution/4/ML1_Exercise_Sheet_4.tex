@@ -1,0 +1,67 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\DeclareMathOperator\erf{erf}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 4}
+\date{\today\\Deadline: 26.05.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ In this exercise, we will be deriving everything necessary for the gradient of a neural network. Later in the lecture you will see these terms in action. Calculate the following derivatives for $a,y\in\R, \bx,\bb,\bw\in\R^d, W\in\R^{d\times d}$:
+\begin{enumerate}
+\item $\frac{\partial}{\partial W_{i,j}}(W\bx+\bb).$
+\item $\frac{\partial}{\partial b_i}(W\bx+\bb).$
+\item $\frac{\partial}{\partial x_i}(W\bx+\bb).$
+\item $\frac{\partial}{\partial a} \sigma(a)=\frac{\partial}{\partial a}\left(1+e^{-a}\right)^{-1}.$
+\item $\frac{\partial}{\partial a} \log{(1+e^{-ya})}.$
+\item Use the above to calculate $\frac{\partial}{\partial W_{i,j}} \log{(1+\exp(-y\bw^T\hat{\sigma}(W\bx+\bb)))}.$ $\hat{\sigma}$ is the elementwise application of $\sigma$, i.e.
+\[\hat{\sigma}\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right)=\begin{bmatrix}\sigma(x_1)\\\sigma(x_2)\end{bmatrix}\]
+\end{enumerate}
+
+\item We will explore activation functions for neural networks. For each function do the following, plot it, state the range of its output (i.e., $f(\R)$), derive its gradient, and state an advantage and disadvantage of using it.
+\begin{enumerate}
+\item \textbf{TanH}: $f(x)=\tanh(x)$
+\item \textbf{Error function}: $f(x)=\erf(x)$
+\item \textbf{ReLU}: $f(x)=\max{(0,x)}$
+\item \textbf{Leaky-ReLU}: $f(x)=\max{(0.01x,x)}$
+\item \textbf{PLU}: $f(x)=\max{(\alpha(x+c)-c, \min{[\alpha(x-c)+c,x]})}$
+\item \textbf{Sinusoid}: $f(x)=\sin(x)$
+\item \textbf{Gaussian}: $f(x)=e^{-x^2}$
+\end{enumerate}
+
+\newpage
+\item The aim of this question is to show the similarities between the hinge loss and logistic loss in optimization. For the SVM problem we considered using gradient descent in slide 10 (Lecture 3.3). We proposed two such methods one using the hinge loss $h(\bx_i)=\max{(0,1-y_i(\bw^T\bx_i))}$ and the other using the logistic loss function:
+$$l(x_i) = \ln{(1+e^{-\bw^\top \Phi(\bx_i)})},$$
+where $\Phi(\bx_i)$ is the output of the output layer.
+\begin{enumerate}
+    \item Let $a_1, a_2,\cdots,a_n \in \R^+$, where $a_i \neq a_j,$ $a^* = \max(\{a_1, a_2,\cdots,a_n\})$ and $a^{**} = \max(\{a_1, a_2,\cdots,a_n\} \backslash \{a^*\})$. Show that:
+$$\lim_{(a^{**} - a^*)\to - \infty}{\ln{(e^{a_1}+e^{a_2} + \cdots + e^{a_n})}}= \max(\{a_1, a_2,\cdots,a_n\}) = a^*$$
+\item Using item (a), show that the hinge loss can be approximated asymptotically by the calculated limit.
+\item You probably noticed that the hinge loss can be approximated by the function $h^*(t) = \ln(1 + e^{1-t})$, where $t=y_i(\bw^\top \bx_i)$. Compare $h^*(t)$ to $l(t) = \ln (1 + e^{-t})$ (logistic loss).
+\end{enumerate}
+
+\item Solve programming task 4.
+\end{enumerate}
+\end{document}

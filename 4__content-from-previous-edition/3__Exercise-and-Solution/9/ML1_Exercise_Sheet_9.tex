@@ -1,0 +1,53 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\balpha}{\mathbf{\alpha}}
+\newcommand{\bone}{\mathbf{1}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\newtheorem{thm}{Theorem}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\DeclareMathOperator\erf{erf}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 9}
+\date{\today\\Deadline: 30.06.2020}
+\begin{document}
+\maketitle
+\textbf{This will be the last exercise sheet of Machine Learning I: Foundations. There might be more python exercises though.}
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ Prove the theorem on slide 4 of the lecture 10.3 slides:
+	\begin{thm}
+		The centered kernel matrix $\tilde{K}$ can be computed from the (uncentered) kernel matrix $K$ by: \[\tilde{K}=\left(I-\frac{1}{n}\bone\bone^T\right)K\left(I-\frac{1}{n}\bone\bone^T\right)\]
+	\end{thm}
+
+\item Prove the theorem on slide 15 of the lecture 10.2 slides:
+	\begin{thm}
+		The kPCA solution $\balpha^* = \left(\balpha_1^*, \ldots, \balpha_n^* \right)$ is given by the $k$ largest Eigenvectors of the (centered) kernel matrix $K$.
+	\end{thm}
+
+\item Please fill out the VLU. If you do not have a @cs.uni-kl.de email adress you might not have received an invitation to fill it out. You can get access by entering a university email adress under \url{https://vlu.informatik.uni-kl.de/teilnahme/}. The VLU is a lecture survey, if enough of you fill this out we might be able to use it to improve ML1 in the future.
+
+Secondly during your exam preparations it would be appreciated if you could note any mistakes you find in the slides, exercise sheets, or the lecture script. Whenever you feel like you have finished you can send this list of mistakes to b\_franks12@cs.uni-kl.de
+
+\item Solve programming task 9.
+\end{enumerate}
+\end{document}

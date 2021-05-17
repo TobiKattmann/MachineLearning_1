@@ -1,0 +1,50 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 2}
+\date{\today\\Deadline: 18.05.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\
+Interestingly the linear hard-margin SVM, given by 
+\begin{alignat}{2}
+	\label{eq:SVM}
+   \max_{\gamma, b\in \R, \bw \in \R^d}~&  \gamma\\
+   \text{s.t.}~  & y_i(\bw^T\bx_i+b) \geq \lVert\bw\rVert\gamma,~\forall i\in\{1,\dots,n\}\nonumber,
+\end{alignat}
+requires only two (non-equal) training points (with opposite labels) to find a separating hyperplane. 
+Let $X:=\{\bx_1, \dots, \bx_n\}$ and $Y:=\{y_1, \dots, y_n\}$, with $x_i \in \R^d$ and $y_i \in \{-1, 1\}$, be a dataset. Let $\gamma^*$, $\bw^*$, and $b^*$ be the optimal solution to the above optimization problem (\ref{eq:SVM}) on $X, Y$. You may assume $w_1\neq0$.
+\begin{enumerate}
+\item Find a minimal dataset $(X',Y')$ with $|X'|=|Y'|=2$ (consisting of only two data points) with the same hard-margin SVM solution (Eq. \eqref{eq:SVM}) as for the dataset $(X, Y)$ , that is, $\gamma^*$, $\bw^*$, and $b^*$.
+\item Prove that, for your choice of $X'$ and $Y'$ in a), $\gamma$, $\bw^*$, and $b^*$ are optimal solutions of \eqref{eq:SVM}.
+\item How is this choice of $X'$ and $Y'$ related to the nearest centroid classifier (NCC)? (Answer this question with at most 5 sentences.)
+\end{enumerate}
+
+\item Consider the soft-margin SVM as in the lecture. Now assume we do not optimize over $b$ and it is fixed to $b=0$. Construct a dataset for which any classifier learned (with $b=0$) performs poorly. Does any classifier with $b$ fixed to a different constant like $b=1$ still perform poorly?
+
+\newpage
+\item Construct a worst-case dataset for the nearest centroid classifier (NCC). This dataset should be easily (not necessarily linearly) separable and the NCC should behave as poorly as possible on this training dataset. \textbf{Hint:} To this end you will have to figure out for yourself how poorly the NCC can perform. Is it possible for the NCC to have $0\%$ accuracy?
+
+\item Solve programming task 2.
+\end{enumerate}
+\end{document}

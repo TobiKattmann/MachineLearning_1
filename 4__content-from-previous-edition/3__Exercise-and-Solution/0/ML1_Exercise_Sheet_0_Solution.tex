@@ -1,0 +1,81 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bw}{\mathbf{w}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\author{Prof. Marius Kloft \and TA: Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 0}
+\date{\today\\Deadline: 28.04.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item (MANDATORY) 5 Points
+	\begin{itemize}
+	\item Please organize yourself in groups of up to 3 people.
+	\item You must hand in \LaTeX~compiled pdfs.
+	\item Put the full names of all participants onto the solutions.
+	\item Do not copy solutions from another group.
+	\item You may work with people outside of your group, however in any case your group should write its own solutions.
+	\end{itemize}
+	\fbox{\parbox{\linewidth}{This should be obvious but this question does not have a solution. It simply has to be followed in the future.}}
+\newpage
+\item (MANDATORY) 3+2 Points
+	\begin{enumerate}
+	\item The scalar projection, $\Pi_\bw(\bx)$, of a vector $\bx$ onto another vector $\bw$ is defined as the coordinate of the orthonormal projection of $\bx$ onto a line parallel to $\bw$, or $span\{\bw\}$. Assume $\bb:=\bx-a_1\frac{\bw}{\left\lVert\bw\right\rVert}$ and $\bb^T\bw=0$ then $\Pi_\bw(\bx):=a_1$. Show that the scalar projection of vector $\bx$ onto $\bw$ is equal to:
+	\begin{equation*}
+	\Pi_\bw(\bx):=\frac{1}{\left\lVert\bw\right\rVert}\bw^T\bx.
+	\end{equation*}
+	\fbox{\parbox{\linewidth}{Let $\ba:=a_1\frac{\bw}{\left\lVert \bw\right\rVert}$ be the vector parallel to $\bw$ with length $|\Pi_\bw(\bx)|$ then $\bb$ is $\bb :=\bx-\ba$. By the definition above $\bb^T\bw=0$. Now consider $\bw^T\bx$:
+	\begin{align}
+	\bw^T\bx &= \bw^T\ba+\bw^T\bb\\
+	&=\bw^T\ba+0\\
+	&=\frac{a_1}{\left\lVert \bw\right\rVert}\bw^T\bw\\
+	&=\frac{a_1}{\left\lVert \bw\right\rVert}\left\lVert \bw\right\rVert^2\\
+	&=a_1\left\lVert\bw\right\rVert\\
+	\frac{\bw^T\bx}{\left\lVert\bw\right\rVert}&=a_1=\Pi_\bw(\bx)
+	\end{align}
+	(2) follows by $\bb^T\bw=0$.
+	(3) follows by $\ba=a_1\frac{\bw}{\left\lVert \bw\right\rVert}$.}}
+	\item Let $f(\bx):=\bw^T\bx+b$, with $\bw, \bx \in \R^d$, $b\in \R$. Let $H$ be a hyperplane defined as $H:=\{\bx \in \R^d|f(\bx)=0\}$ and let $\tilde{\bx}\in H$. The signed distance of $\bx \in \R^d$ to $H$ is $d(\bx,H):=\Pi_\bw(\bx-\tilde{\bx})$. Show that the signed distance can be equivalently defined as:
+	\begin{equation*}
+	d(\bx,H):=\frac{\bw^T\bx+b}{\left\lVert\bw\right\rVert}.
+	\end{equation*}
+	\fbox{\parbox{\linewidth}{Let $\tilde{\bx}\in H$. Then
+	\begin{align}
+	d(\bx,H)&=\Pi_\bw(\bx-\tilde{\bx})\\
+	&=\frac{\bw^T(\bx-\tilde{\bx})}{\left\lVert\bw\right\rVert}\\
+	&=\frac{\bw^T\bx-\bw^T\tilde{\bx}}{\left\lVert\bw\right\rVert}\\
+	&=\frac{\bw^T\bx+b}{\left\lVert\bw\right\rVert}
+	\end{align}
+	(10) follows by $\tilde{\bx}\in H$, $\bw^T\tilde{\bx}+b=0$.}}
+	\end{enumerate}
+\newpage
+\item In this question we will have you do some exploration of the applications of machine learning. One of the goals of this lecture is for you to be able to identify learning problems on your own. To this end, describe three learning problems that have not been mentioned in the lecture. For each problem adress the following:
+	\begin{itemize}
+	\item What is the data? (What are the inputs; what are the labels?)
+	\item What is the goal? Are humans good at solving this task? Why, or why not?
+	\end{itemize}
+	\fbox{\parbox{\linewidth}{
+	\begin{enumerate}
+	\item[\quad a1] Two-Player Games. The data is a set of current board positions, the label is which move should be taken.
+	\item[\quad b1] The goal is to choose the best move among all available moves. In the past humans where much better at these task because labeling positions was generally difficult. Recently AI has beaten humans in the last remaining "difficult" game GO.
+	\item[\quad a2] Image Segmentation. The data is a set of images, the label is a value for each pixel i.e. which object class does this pixel belong to. This task is effectively the next step from object detection.
+	\item[\quad b2] The goal is to determine all objects and their locations within the image, this is important for a multitude of tasks, typically an image contains multiple classes. Humans are considered good at this task, however analysis show AI can beat human accuracy.
+	\item[\quad a3] Higher dimensional object recognition. The data is higher dimensional images or spatially related data as video. The labels are location and type of object.
+	\item[\quad b3] As in the task of CT-scans, determining the location of for example cancerous tissue. Human doctors typically struggle with this task.
+	\end{enumerate}}}
+\item Make sure to set python notebook up on your computer, you can use the following link to do so \url{https://jupyter.readthedocs.io/en/latest/install.html}. Then solve programming task 0.
+\end{enumerate}
+\end{document}

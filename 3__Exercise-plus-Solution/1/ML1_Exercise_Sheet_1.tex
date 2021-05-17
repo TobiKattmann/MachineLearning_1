@@ -1,0 +1,70 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\author{Prof. Marius Kloft \and TA: Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 1}
+\date{\today\\Deadline: 11.05.2021}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\
+In this question we will be exploring eigenvectors and eigenvalues. Let $A \in \R^{d \times d}$. Recall the following definition from linear algebra: a vector $\bv \in \R^d$ is an {\em eigenvector} of $A$ if and only if there exists $\lambda \in \R$ such that $A \bv=\lambda \bv$. We then call $\lambda$ the {\em eigenvalue} of $A$ associated with the vector $\bv$. Note that, if $\bv$ is an eigenvector of $A$, then, for any $a \in \R$, $a\bv$ is also an eigenvector of $A$. Therefore, $\bv$ and $a\bv$ are not considered 'distinct' eigenvectors.
+Prove the following:
+	\begin{prop}
+		If $A$ has a finite number of distinct eigenvectors then each eigenvector must have a unique eigenvalue.
+	\end{prop}
+
+\item \textbf{(MANDATORY) 10 Points}\\
+Recall the following definition from linear Algebra: a symmetric matrix $A\in\R^{d\times d}$  is called positive definite, if $\bx^\top A\bx>0$ for all $\bx\in\R^d$ with $\bx\neq\mathbf{0}$. Let $A$ be symmetric.
+\begin{enumerate}
+    \item Prove that, if all eigenvalues of $A$ are positive, then $A$ is positive definite. 
+    \item Prove that, all eigenvalues of $A$ are positive, if $A$ is positive definite.
+		\end{enumerate}
+		 Now let $F:\begin{matrix*}[l]\R^2&\rightarrow&\R \\ (x,y) &\mapsto& x^2 + 2y^2  + 4.97.\end{matrix*}$ 
+\begin{enumerate}
+    \item[c)] Find the critical point of F.
+    \item[d)] Compute the Hessian matrix $H$ of $F$ in any point $(x,y)^\top\in\R^2$. 
+    \item[e)] Recall from multivariate calculus that, if $H$ is positive definite in a critical point $(x,y)^\top$, then $(x,y)^\top$ is a local minimum. Show that the critical point of $F$ is a local minimum. 
+		 \textbf{Hint:} note that  $H$ is symmetric.
+    \end{enumerate}
+
+\newpage
+\item
+	Find the global minima of the following functions $f:\mathbb R\rightarrow\mathbb R$ and $g,h,i:\mathbb R^2\rightarrow\mathbb R$. 
+	\begin{enumerate}
+	\item $f(w):=aw^2+bw+c$
+	\item $g(\bw):=\bw^TA\bw+\bb^T\bw+c$
+	\item $h(\bw):=aw_1^2+bw_2+c$
+	\item $i(\bw):=w_1^2+w_2^2+w_1^2w_2$
+	\end{enumerate}
+	\textbf{Hint:} Compute the gradient of the above functions and set it to zero. Do not forget to check the necessary conditions on global minima.
+
+\item For a matrix $X \in \R^{m\times n}$ let $X_{i,:} = \left[X_{i,1},\ldots,X_{i,n}  \right]$ be the $i$-th row vector and $X_{:,i} =  \left[X_{1,i}, \ldots , X_{m,i} \right]^T$ be the $i$-th column vector. For $X \in \R^{m\times n}$ and $Y\in \R^{n\times q}$ show that
+	\begin{eqnarray*}
+		XY = \left[X_{i,:} Y_{:,j} \right]_{i,j}
+	\end{eqnarray*}
+	and
+	\begin{eqnarray*}
+		XY = \sum_{i=1}^n X_{:,i} Y_{i,:}.
+	\end{eqnarray*}
+	Be sure to note the orientations of the vectors, some of these are row vectors and others are column vectors.
+\end{enumerate}
+\end{document}

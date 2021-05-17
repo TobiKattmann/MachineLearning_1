@@ -1,0 +1,49 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\DeclareMathOperator\erf{erf}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 8}
+\date{\today\\Deadline: 23.06.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ This week the mandatory exercise will be a coding exercise. As such you need to download and work on the provided Jupyter Notebook. There you have to solve Exercise 1, the exercise about k-means. At the end of this exercise you should have produced some plots, that are already present in the code skeleton. These plots are automatically saved as a pdf file named 'kmeans\_plots.pdf'. You should hand in your finished .ipynb file as well as this saved pdf of the plots. You will be scored on your plots, as such do not change the code skeleton revolving around the plotting. In unclear cases we might check your code. Refer to sheet 0 if you are unsure how to set up Jupyter Notebook.
+
+\item I expect there to be students who are only solving the exercise sheet, but are not solving the coding exercises. Coding is an inherent part of ML1 as such I recommend you to spend the time you would have spent on this exercise on coding exercises instead, in case you have not done so anyway.
+
+\item In the lecture the following solution to ridge regression was stated
+    $$\bw_{RR} = \left(XX^\top + \frac{1}{2C}\text{I}\right)^{-1}X y.$$
+The traditional linear regression has the solution $\bw_{R} = (XX^\top)^{-1}X y$. The matrix $X \in \R^{n \times d}$ is commonly not invertible. For example, if our problem has more features than entries the traditional linear regression is not defined since $(XX^\top)$ is singular. Ridge regression can solve this problem by adding $\frac{1}{2C}\text{I}$.
+\begin{enumerate}
+\item For which values of $C$ is $\left(XX^\top + \frac{1}{2C}\text{I}\right)$ singular, thus having no solution? (Tip: consider the eingenvalues of $XX^\top$)
+\item Prove that $XX^T$ is positive semi-definite.
+\item Prove that, for proper choices of $C$, $\left(XX^\top + \frac{1}{2C}\text{I}\right)$ is always invertible.
+\end{enumerate}
+
+\item Solve programming task 8.
+\end{enumerate}
+\end{document}

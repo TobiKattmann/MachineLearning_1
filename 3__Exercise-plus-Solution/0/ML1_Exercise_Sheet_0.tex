@@ -1,0 +1,54 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bw}{\mathbf{w}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\author{Prof. Marius Kloft \and TA: Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 0}
+\date{\today\\Deadline: 07.05.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item (MANDATORY) 5 Points
+	\begin{itemize}
+	\item Please organize yourself in groups of up to 3 people.
+	\item You must hand in \LaTeX~compiled pdfs, unless the mandatory parts only include programming exercises. Then you may hand in only the .ipynb files. If the mandatory tasks are mixed, please zip your pdf and .ipynb files for upload on OLAT.
+	\item Put the full names of all participants onto the solutions.
+	\item Do not copy solutions from another group.
+	\item You may work with people outside of your group, however in any case your group should write its own solutions.
+	\end{itemize}
+\item
+	\begin{enumerate}
+	\item The scalar projection, $\Pi_\bw(\bx)$, of a vector $\bx$ onto another vector $\bw$ is defined as the coordinate of the orthonormal projection of $\bx$ onto a line parallel to $\bw$, or $span\{\bw\}$. Assume $\bb:=\bx-a_1\frac{\bw}{\left\lVert\bw\right\rVert}$ and $\bb^T\bw=0$ then $\Pi_\bw(\bx):=a_1$. Show that the scalar projection of vector $\bx$ onto $\bw$ is equal to:
+	\begin{equation*}
+	\Pi_\bw(\bx):=\frac{1}{\left\lVert\bw\right\rVert}\bw^T\bx.
+	\end{equation*}
+	\item Let $f(\bx):=\bw^T\bx+b$, with $\bw, \bx \in \R^d$, $b\in \R$. Let $H$ be a hyperplane defined as $H:=\{\bx \in \R^d|f(\bx)=0\}$ and let $\tilde{\bx}\in H$. The signed distance of $\bx \in \R^d$ to $H$ is $d(\bx,H):=\Pi_\bw(\bx-\tilde{\bx})$. Show that the signed distance can be equivalently defined as:
+	\begin{equation*}
+	d(\bx,H):=\frac{\bw^T\bx+b}{\left\lVert\bw\right\rVert}.
+	\end{equation*}
+	\end{enumerate}
+\newpage
+\item In this question we will have you do some exploration of the applications of machine learning. One of the goals of this lecture is for you to be able to identify learning problems on your own. To this end, describe three learning problems that have not been mentioned in the lecture. For each problem adress the following:
+	\begin{itemize}
+	\item What is the data? (What are the inputs; what are the labels?)
+	\item What is the goal? Are humans good at solving this task? Why, or why not?
+	\end{itemize}
+\item (MANDATORY) 5 points\\
+Make sure to set python notebook up on your computer, you can use the following link to do so \url{https://jupyter.readthedocs.io/en/latest/install.html}. Then solve programming task 0. The mandatory part is only 3.4 $k$-nearest neighbours, however doing the rest of the programming tasks should help prepare you for 3.4.
+\end{enumerate}
+\end{document}

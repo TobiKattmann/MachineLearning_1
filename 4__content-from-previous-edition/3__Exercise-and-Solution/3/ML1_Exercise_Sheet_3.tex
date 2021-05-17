@@ -1,0 +1,60 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\author{Prof. Marius Kloft \and TA: Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 3}
+\date{\today\\Deadline: 19.05.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ 
+Suppose that $k_1,\ldots,k_n: \R^d \times \R^d \to \R$ are kernels. Let $c_1, \dots, c_n \in \R^+$ and $p \in \N$. Prove that the following functions $k$ are also kernels.
+\begin{enumerate}
+	\item \textbf{Scaling}: $k(\bx,\bx') := c_1 k_1(\bx,\bx')$
+	\item\textbf{Sum}: $k(\bx,\bx') := k_1(\bx,\bx') + k_2(\bx,\bx')$
+	\item\textbf{Linear combination}: $k(\bx,\bx') := \sum_{i=1}^n c_i k_i(\bx,\bx')$
+	\item\textbf{Product}: $k(\bx,\bx') := k_1(\bx,\bx')k_2(\bx,\bx')$
+	\item\textbf{Power}: $k(\bx,\bx') := k_1(\bx,\bx')^{p}$
+\end{enumerate}
+
+\item In the lecture a few kernels were proposed, and here we will prove them to be kernels. Prove the following statements:
+\begin{enumerate}
+	\item \textbf{Polynomial kernel}: $k(\bx, \bx'):=(\bx^T\bx'+c)^d$ is a kernel. 
+  \item\textbf{Limits}: If $k_i: \R^d \times \R^d \to \R$, $i\in\N$, are kernels and $k(\bx,\bx'):=\lim_{n \to \infty}k_n(\bx, \bx')$ exists for all $\bx, \bx'$, then $k(\bx, \bx')$ is a kernel. Use the definition of positive semi-definiteness. 
+	\item\textbf{Exponents}: If $\tilde{k}$ is a kernel, then $k(\bx,\bx') := \exp{(\tilde{k}(\bx,\bx'))}$ is a kernel.
+	\item\textbf{Functions}: If $\tilde{k}$ is a kernel and $f:\R^d \to \R$ then $k(\bx,\bx') := f(\bx)\tilde{k}(\bx,\bx')f(\bx')$ is a kernel.
+	\item\textbf{Gaussian RBF kernel}: $ k(\bx, \bx'):=\exp{(-\frac{\left\lVert\bx-\bx'\right\rVert}{2})}$ is a kernel.
+\end{enumerate}
+\textbf{Hint:} Use the results from Exercise 1 above.
+
+\newpage
+\item Prove the following lemma:
+	\begin{lem}
+		Let $V$ be a vector space and $I$ a set. Let $f_i:V \to \R$ be a collection of functions indexed by $i \in I$. If $f_i$ is convex for all $i$, then the function
+		$$f(x) = \max_{i \in I} f_i(x)$$
+		is also convex.
+	\end{lem}
+	
+\item Solve programming task 3.
+\end{enumerate}
+\end{document}

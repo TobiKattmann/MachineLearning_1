@@ -1,0 +1,67 @@
+\documentclass[]{scrartcl}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}
+\setlist[enumerate,1]{label=\bfseries\arabic*)}
+
+\DeclareMathOperator\erf{erf}
+
+\author{Prof. Marius Kloft \and TA:Billy Joe Franks}
+\title{Machine Learning I: Foundations \\ Exercise Sheet 7}
+\date{\today\\Deadline: 16.06.2020}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item \textbf{(MANDATORY) 10 Points}\\ Interestingly the linear hard-margin SVM, given by 
+\begin{alignat}{2}
+	\label{eq:SVM}
+   \min_{\bw \in \R^d, b \in \R}~&  \frac{1}{2}\left\lVert\bw\right\rVert^2\\
+   \text{s.t.}~  & 1-y_i(\bw^T\bx_i+b) \leq 0,~\forall i\in\{1,\dots,n\}\nonumber,
+\end{alignat}
+requires only two (non-equal) training points (with opposite labels) to find a separating hyperplane. 
+Let $X:=\{\bx_1, \dots, \bx_n\}$ and $Y:=\{y_1, \dots, y_n\}$, with $x_i \in \R^d$ and $y_i \in \{-1, 1\}$, be a dataset. Let $\bw^*$ and $b^*$ be the optimal solution to the above optimization problem (\ref{eq:SVM}) on $X, Y$. You may assume $w_1\neq0$.
+\begin{enumerate}
+\item Find a minimal dataset $(X',Y')$ with $|X'|=|Y'|=2$ (consisting only of two data points) with the same hard-margin SVM solution (Eq. \eqref{eq:SVM}) as for the dataset $(X, Y)$ , that is, $\bw^*$ and $b^*$.
+\item Prove that, for your choice of $X'$ and $Y'$ in a), $\bw^*$ and $b^*$ are optimal solutions of \eqref{eq:SVM}.
+\item Why would it be advantageous to use $(X', Y')$ instead of $X, Y$ during optimization, assuming we had access to both and knew they are equivalent? (Answer this question with at most 5 sentences.)
+\item Assume we train the hard-margin SVM with only two (arbitrary) training points (not the optimal data points as above). Consider $d \to \infty$. What can you state regarding overfitting and underfitting here? Explain your answer. (Answer this question with at most 5 sentences.)
+\end{enumerate}
+
+\item Consider the kernel ridge regression optimization problem (Lecture 8, Slide 39). Let $\alpha^* \in \R^d$ be the vector that minimizes the loss function. Show that:
+$$\alpha^* = \left(K+\frac{1}{2C}\text{I}_{n\times n}\right)^{-1}y$$
+
+\newpage
+\item In the lecture we found a closed form solution for linear ridge regression and we incorporated $b$ afterwards by simply changing the dataset slightly. This however means that $b$ is regularized during optimization. What would happen if we introduce $b$ in a different way? Consider linear ridge regression with offset
+\begin{alignat}{2}
+	\label{eq:SVR1}
+   \min_{\bw \in \R^d, b \in \R}~&  \frac{1}{2}\left\lVert\bw\right\rVert^2 + C\left\lVert\by-(X^T\bw+\hat{\bb})\right\rVert^2
+\end{alignat}
+where $\forall i: \hat{b}_i=b$. $\hat{\bb}$ simply copies $b$ into each component. Alternatively the norm could be written as a sum incorporating only $b$, as follows
+\begin{alignat}{2}
+	\label{eq:SVR2}
+   \min_{\bw \in \R^d, b \in \R}~&  \frac{1}{2}\left\lVert\bw\right\rVert^2 + C\sum_i\left(y_i-(\bx_i^T\bw+b)\right)^2
+\end{alignat}
+(\ref{eq:SVR1}) and (\ref{eq:SVR2}) have the same closed-form solution. Find this solution. Thereby choose the version from the above two that you prefer ((\ref{eq:SVR1}) or (\ref{eq:SVR2})). 
+
+\item Solve programming task 7.
+\end{enumerate}
+\end{document}
