@@ -10,4 +10,5 @@ An additional `README.md` in such subfolder documents possible differences betwe
 This kind of `README.md` documentation is also done for the `ExamTasks` in each topic as they are not always unique.
 
 Additional content:
-- [This](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) blogpost about CNN's and what convolutions are
+- [Blogpost](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) about CNN's and what convolutions are
+- [Youtube video](https://www.youtube.com/watch?v=Rdpbnd0pCiI) about autoencoders (AE's) by 2minpapers
