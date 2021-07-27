@@ -1,4 +1,4 @@
-# Solutions to `MC_SS10_3.PNG` 
+# Solutions to `MC_SS19_3.PNG` 
 
 a) Q: The k-means algorithm solves the clustering dilemma (that is, finding the right number of clusters).
 
@@ -16,7 +16,8 @@ A: True. [link1](https://ai.stackexchange.com/questions/11953/what-are-the-domai
 d) Q: Cross-validation can be used to compare different algorithms on the same task.
 
 A: False. Cross-validation (CV) can be used to give compare different sets of hyperparameters. (see 8.2 LOOCV in the lecture)
-Or, in the first place, CV is used to compute the average classification error and standard deviation of a specific ML-model, as a single training plus testset-run can be misleading. (see 1.1 Motivation and introduction in the lecture)
+Or, in the first place, CV is used to compute the average classification error and standard deviation of a specific ML-model, as a single training plus testset-run can be misleading. (see 1.1 Motivation and introduction in the lecture) Ok, actually, CV CAN be used to compare different alogorithm/ML-models on the same tasks by comparing their avg. error which is a result of CV.
+
 
 e) Q: Backpropagation is an algorithm used to regularize an artificial neural network.
 
