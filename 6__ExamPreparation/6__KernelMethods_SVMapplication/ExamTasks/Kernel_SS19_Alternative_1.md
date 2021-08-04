@@ -5,6 +5,7 @@ it is not beneficial to use a kernel method
 
 A:
 1. When the number of data points n is very high the kernel matrix is prohibitively large to be stored in memory (n^2)
+2. The data is always linearly seperable if n <= d+1 
 
 
 
