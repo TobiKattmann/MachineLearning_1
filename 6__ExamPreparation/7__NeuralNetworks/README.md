@@ -1,2 +1,1 @@
-- [link](https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/) blogpost which has a good explanation on multiple channels and how filters are applied.
-- 
+- [link](https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/) blogpost which has a good explanation on multiple channels and how filters are applied. And that after the Convolution filter we then can apply a (potentially non-linear) activation function
