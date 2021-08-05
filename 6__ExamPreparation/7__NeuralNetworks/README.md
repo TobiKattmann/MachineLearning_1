@@ -1,0 +1,2 @@
+- [link](https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/) blogpost which has a good explanation on multiple channels and how filters are applied.
+- 
