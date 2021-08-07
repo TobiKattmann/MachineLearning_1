@@ -32,4 +32,4 @@ e) Q: Assume that the Sn above is not centered and we do not have access to the 
 Can we use the same trick we used to center the kernel matrix to center Sn? Explain your
 answer.
 
-A: ?? 
+A: No, The problem is generally that we have `K=phi^T phi`  and `Sn=X X^T` i.e. the Transpose is one the "wrong" side such that we cannot reinsert Sn (just like the non-centered kernel matrix in the proof there) into the formula
